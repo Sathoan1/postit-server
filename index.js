@@ -9,6 +9,7 @@ const PORT= process.env.PORT || 4000
 const authRouter= require('./routes/authRouter')
 const storyRouter= require('./routes/storyRouter')
 const auth= require('./middleware/auth');
+const fs= require('fs')
 
 
 // cloudinary config
