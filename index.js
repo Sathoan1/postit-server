@@ -26,6 +26,9 @@ app.use(cors())
 
 
 // routes
+app.get('/',( req,res)=>{
+    res.send('welcome to POST IT API')
+})
 app.use('/api', authRouter)
 app.use('/api', auth, storyRouter)
 
