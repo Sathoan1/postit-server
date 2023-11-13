@@ -4,12 +4,11 @@ const app= express();
 const mongoose= require('mongoose')
 const cors= require('cors')
 const cloudinary= require('cloudinary').v2
-const fileupload= require('express-fileupload')
+const fileUpload = require('express-fileupload')
 const PORT= process.env.PORT || 4000
 const authRouter= require('./routes/authRouter')
 const storyRouter= require('./routes/storyRouter')
 const auth= require('./middleware/auth');
-const fs= require('fs')
 
 
 // cloudinary config
@@ -20,7 +19,7 @@ cloudinary.config({
 })
 
 // middleware
-app.use(fileupload ({useTempFiles: true}))
+app.use(fileUpload({useTempFiles: true}))
 app.use(express.json())
 app.use(cors())
 

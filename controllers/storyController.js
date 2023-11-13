@@ -1,5 +1,6 @@
 const Story = require('../models/story');
 const cloudinary= require('cloudinary').v2
+const fs = require('fs')
 
 
 // get all stories
@@ -43,7 +44,7 @@ const getUsersStories= async (req, res)=>{
 const createStory= async (req, res)=>{
     const {userId}= req.user
     // get access to to the image in req.file
-
+   
     try{
  //    image upload
  const result= await cloudinary.uploader.upload(req.files.image.tempFilePath, {
@@ -60,6 +61,7 @@ fs.unlinkSync(req.files.image.tempFilePath)
  const story= await Story.create({...req.body})
  res.status(201).json({success: true, story})
     }catch(error){
+        console.log(error);
      res.json(error)
     }
 }
